@@ -1,0 +1,26 @@
+QuerySet
+---------------
+queryset = ModelName.objects.all()
+                            .get()
+                            .filter()
+                            .exclude()
+
+<a href="{{request.META.HTTP_REFERER}}">GO BACK</a>
+#sent user where they came from 
+-------------------------------------------------
+django has built in session based login system
+---------------------------------------------------
+django flash message use ---> built-in
+
+DB
+----
+1.many to one rs ----> one parent and multiple children
+2.many to many ---> multiple objects can be 
+We can have a room that's connected to a user but user doesn't have to be only in one room
+they can go to many other rooms and the rooms can also have many users
+
+
+For many to many relationship--->
+.all in view
+For many to one relationship--->
+_set.all()
