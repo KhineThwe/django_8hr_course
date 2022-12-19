@@ -63,7 +63,8 @@ def home(request):
         )
     topic = Topic.objects.all()
     room_count = room.count()
-    contexts = {'rooms':room,'topics':topic,"room_count":room_count}
+    room_messages = Message.objects.filter(Q(room__topic__name__icontains = q))
+    contexts = {'rooms':room,'topics':topic,"room_count":room_count,"room_messages":room_messages}
     return render(request,'base/home.html',contexts)
 
 @login_required(login_url = 'login')
@@ -79,7 +80,7 @@ def create_room(request):
 
 def room(request,pk):
     room = Room.objects.get(id=pk)
-    room_messages = room.message_set.all().order_by('-created')
+    room_messages = room.message_set.all()
     #descending order newest first
     #get all msg --> Model Message in lowercase message be
     #careful
